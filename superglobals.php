@@ -24,6 +24,19 @@ echo $_SERVER['PHP_SELF'].'<br>';
 echo $_SERVER['SERVER_NAME']. '<br>';
 echo $_SERVER['HTTP_HOST']. '<br>';
 
+
+//Or Server Array
+$server = [
+       'Host Server Name' => $_SERVER['SERVER_NAME']. '<br>',
+        'Host Header' => $_SERVER['HTTP_HOST']. '<br>',
+        'Server Software' => $_SERVER['SERVER_SOFTWARE']. '<br>',
+        'Document Root' => $_SERVER['DOCUMENT_ROOT']. '<br>',
+        'Current Page' => $_SERVER['PHP_SELF']. '<br>',
+        'Script Name' => $_SERVER['SCRIPT_NAME']. '<br>',
+        'Absolute Path' => $_SERVER['SCRIPT_FILENAME']. '<br>',
+];
+//print_r($server);
+
 //collecting data using $_REQUEST method
 echo $_SERVER['REQUEST_METHOD']. '<br>';
 if ($_SERVER['REQUEST_METHOD']=='POST'){
@@ -44,7 +57,7 @@ if ($_SERVER['REQUEST_METHOD']=='POST'){
 
 
 <h1>Collecting data using $_REQUEST</h1>
-<form action="lesson8.php" method="post">
+<form action="superglobals.php" method="post">
     <input type="text" name="jina" placeholder="Enter Name">
     <input type="email" name="arafa" placeholder="Enter Email">
     <input type="Submit" value="send data">
@@ -61,4 +74,4 @@ $the_age = $_GET['age'];
 echo "$the_name <br>";
 echo "$the_age <br>";
 ?>
-<a href="lesson8.php?name=Antony&age=23">Send</a>
+<a href="superglobals.php?name=Antony&age=23">Send</a>
