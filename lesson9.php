@@ -1,4 +1,6 @@
 <?php
+require 'header.php';
+require 'config.php';
 //input: username, firstname, lastname, email, password, confirm password
 //algorithm :step by step solution to a problem
 //1. define empty variables to store incoming data
@@ -51,6 +53,14 @@ if ($_SERVER['REQUEST_METHOD']=='POST') {
 //    check no of chars
         if (strlen($password1) < 8) {
             $password1_err = "Password is less than 8 characters";
+        }else{//add/insert data into the db table:users mysqli_query()
+            $sql = "INSERT INTO `users`(`id`, `username`, `firstname`, `lastname`, `email`, `password`) VALUES (NULL,'$username','$firstname','$lastname','$email','$password1')";
+            if(mysqli_query($conn,$sql)){
+                echo "Data added successfully:$sql<br>";
+            }else{
+                echo "Data not Added! <br>".mysqli_error($conn);
+                echo "sql<br>";
+            }
         }
     }
 
@@ -102,3 +112,8 @@ function mwoshomwosho($data){
         <button type="submit" name="signup-btn">Signup</button>
     </fieldset>
 </form>
+
+<?php
+require 'footer.php';
+
+?>
