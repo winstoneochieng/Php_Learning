@@ -59,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD']=='POST') {
             $sql = "INSERT INTO `users`(`id`, `username`, `firstname`, `lastname`, `email`, `password`) VALUES (NULL,'$username','$firstname','$lastname','$email','$password1')";
             if(mysqli_query($conn,$sql)){
 //                echo "Data added successfully:$sql<br>";
-                header('location:index2.php');
+                header('location:index.php');
             }else{
                 echo "Data not Added! <br>".mysqli_error($conn);
                 echo "sql<br>";
