@@ -53,10 +53,13 @@ if ($_SERVER['REQUEST_METHOD']=='POST') {
 //    check no of chars
         if (strlen($password1) < 8) {
             $password1_err = "Password is less than 8 characters";
-        }else{//add/insert data into the db table:users mysqli_query()
+        }else{
+            $password1 = md5($password1);//password hashing
+            //add/insert data into the db table:users mysqli_query()
             $sql = "INSERT INTO `users`(`id`, `username`, `firstname`, `lastname`, `email`, `password`) VALUES (NULL,'$username','$firstname','$lastname','$email','$password1')";
             if(mysqli_query($conn,$sql)){
-                echo "Data added successfully:$sql<br>";
+//                echo "Data added successfully:$sql<br>";
+                header('location:index2.php');
             }else{
                 echo "Data not Added! <br>".mysqli_error($conn);
                 echo "sql<br>";
