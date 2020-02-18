@@ -27,11 +27,12 @@ if (isset($_GET['id'])){
 
 }
 ?>
-<form action="" method="post">
+<form action="update_handler.php" method="post">
     <fieldset>
         <div class="form-group">
             <label for="">Username</label>
             <input type="text" name="username" value="<?php echo $username?>">
+            <input type="text" hidden name="user_id" value="<?php echo $id?>">
         </div>
         <div class="form-group">
             <label for="">Firstname</label>
