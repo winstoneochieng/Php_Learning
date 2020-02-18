@@ -22,7 +22,7 @@ if (isset($_GET['id'])){
         $firstname = $row['firstname'];
         $lastname = $row['lastname'] ;
         $email = $row['email'];
-        echo $username, $firstname, $lastname, $email;
+//        echo $username, $firstname, $lastname, $email;
     }
 
 }

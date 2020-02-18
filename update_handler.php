@@ -12,10 +12,13 @@
             $lastname = $_POST['lastname'] ;
             $email = $_POST['email'];
 
-            echo $username.'<br>', $firstname. '<br>', $lastname. '<br>', $email. '<br>';
+            $sql = "UPDATE `users` SET `username`='$username',`firstname`='$firstname',`lastname`='$lastname',`email`='$email' WHERE id='$id'";
+        //update
+            if (mysqli_query($conn, $sql)){
+                header("location:update.php?id=$id");
+            }
+
         }
-
-
 
         //update data in db
     }
